@@ -1,5 +1,6 @@
 package com.DatabaseSegreteriaApplication.DBmodel;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,21 +20,39 @@ import lombok.ToString;
 @Data
 @ToString
 
-@Table(name="CORSI")
-public class Corsi {
+@Table(name="corsi")
+public class Corso implements Serializable {
+	
+
+//	public Corso(String nome2, String durata2, String codDocente) {
+//		this.nome=nome2;
+//		this.durata=durata2;
+//		this.codDocente=codDocente;
+//	}
+	
+	
 	@Id
-	 @Column(name="COD_CORSO")
-		private String CODICE_CORSO;
-	 @Column(name="NOME")
-		private String NOME;
+	 @Column(name="codCorso")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "codCorso")
+	 @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
+		private Long codCorso;
+	 @Column(name="nome")
+		private String nome;
 	 
-	 @Column(name="DURATA")
-		private String DURATA;
+	 @Column(name="durata")
+		private String durata;
 	 
-	 @Column(name="COD_DOCENTE")
-		private String COD_DOCENTE;
-	 @Column(name="MATRICOLA")
-		private String MATRICOLA;
+
+	 
+//	 @ManyToOne
+//	 @JoinColumn(name="matricola")
+//		private Studente studente;
+	 
+	 @ManyToOne
+	 @JoinColumn(name="codDocente")
+	 	private Docente docente;
+	 
+	 
 	 	
 //	 @OneToOne(targetEntity = Studente.class)
 //	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
@@ -50,5 +69,7 @@ public class Corsi {
 //	 @OneToOne(targetEntity = Corsi.class)
 //	 @JoinColumn(name = " codEsame_fk", referencedColumnName = "COD_ESAME")
 //	 private List<Esami> COD_ESAME;
+	 
+	 
 }
 

@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.DatabaseSegreteriaApplication.DBmodel.Esami;
 
+@Repository
 public interface EsamiRepository extends JpaRepository <Esami, String>{
-	List<Esami> findAll();
+//	List<Esami> findAll();
 
 }

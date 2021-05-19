@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
-import com.DatabaseSegreteriaApplication.Repository.CorsiRepository;
+import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
 import com.DatabaseSegreteriaApplication.Repository.DocentiRepository;
 import com.DatabaseSegreteriaApplication.Repository.EsamiRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
@@ -21,7 +21,7 @@ import com.DatabaseSegreteriaApplication.services.BancaService;
 public class BancaController {
 	private StudenteRepository studenteRepository;
 	private SegreteriaRepository segreteriaRepository;
-	private CorsiRepository	corsiRepository;
+	private CorsoRepository	corsiRepository;
 	private BancaRepository bancaRepository;
 	private DocentiRepository docentiRepository;
 	private EsamiRepository esamiRepository;

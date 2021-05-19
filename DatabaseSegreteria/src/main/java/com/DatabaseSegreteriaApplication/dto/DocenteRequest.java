@@ -1,6 +1,6 @@
 package com.DatabaseSegreteriaApplication.dto;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Docenti;
+import com.DatabaseSegreteriaApplication.DBmodel.Docente;
 
 import lombok.*;
 @Data
@@ -9,5 +9,5 @@ import lombok.*;
 @ToString
 
 public class DocenteRequest {
-	private Docenti COD_DOCENTE;
+	private Docente COD_DOCENTE;
 }

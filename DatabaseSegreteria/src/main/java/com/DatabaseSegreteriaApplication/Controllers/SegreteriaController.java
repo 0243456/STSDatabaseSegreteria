@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
-import com.DatabaseSegreteriaApplication.Repository.CorsiRepository;
+import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
 import com.DatabaseSegreteriaApplication.Repository.DocentiRepository;
 import com.DatabaseSegreteriaApplication.Repository.EsamiRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
@@ -30,7 +30,7 @@ public class SegreteriaController {
 	
 	private StudenteRepository studenteRepository;
 	private SegreteriaRepository segreteriaRepository;
-	private CorsiRepository	corsiRepository;
+	private CorsoRepository	corsiRepository;
 	private BancaRepository bancaRepository;
 	private DocentiRepository docentiRepository;
 	private EsamiRepository esamiRepository;

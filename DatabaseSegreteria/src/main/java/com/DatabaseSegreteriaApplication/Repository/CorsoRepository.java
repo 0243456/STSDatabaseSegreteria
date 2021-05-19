@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Corsi;
+import com.DatabaseSegreteriaApplication.DBmodel.Corso;
 
-public interface CorsiRepository extends JpaRepository <Corsi, String>{
-	List<Corsi> findAll();
+public interface CorsoRepository extends JpaRepository <Corso, String>{
+//	List<Corso> findAll();
 }

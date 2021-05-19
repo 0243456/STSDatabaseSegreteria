@@ -20,20 +20,19 @@ import lombok.ToString;
 @ToString
 
 @Table(name="DOCENTI")
-public class Docenti {
+public class Docente {
 	@Id
-	 @Column(name="COD_DOCENTE")
-		private String COD_DOCENTE;
-	 @Column(name="NOME")
-		private String NOME;
+	 @Column(name="codDocente")
+		private String codDocente;
+	 @Column(name="nome")
+		private String nome;
 	 
-	 @Column(name="COGNOME")
-		private String COGNOME;
+	 @Column(name="cognome")
+		private String cognome;
 	 
-	 @Column(name="MATERIA")
-		private String MATERIA;
-	 @Column(name="COD_CORSO")
-		private String COD_CORSO;
+	 @Column(name="materia")
+		private String materia;
+
 	 
 //	 @OneToOne(targetEntity = Corsi.class)
 //	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "cod_docente")

@@ -1,6 +1,12 @@
 package com.DatabaseSegreteriaApplication.dto;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Corsi;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
+import com.DatabaseSegreteriaApplication.DBmodel.Corso;
 
 import lombok.*;
 @Data
@@ -9,5 +15,11 @@ import lombok.*;
 @ToString
 
 public class CorsoRequest {
-	private Corsi COD_CORSO;
+	
+		private Long codCorso;
+		private String nome;
+		private String durata;
+		private String codDocente;
+//		private String matricola;
+		
 }
