@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @AutoConfigureAfter
 
-public interface BancaService {
-	String bancaService();
+public class BancaService {
+	String bancaService() {
+		return null;
+	}
 }

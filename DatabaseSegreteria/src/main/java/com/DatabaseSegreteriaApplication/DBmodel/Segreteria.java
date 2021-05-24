@@ -24,26 +24,26 @@ public class Segreteria {
 	
 	 @Id
 	 @GeneratedValue
-	 @Column(name="COD_SEGRETERIA")
-		private String CODICE_SEGRETERIA;
+	 @Column(name="codSegreteria")
+		private String codSegreteria;
 	 
-	 @Column(name="DATI_STUDENTE")
-		private String DATI_STUDENTE;
+	 @Column(name="datiStudente")
+		private String datiStudente;
 	 
-	 @Column(name="TASSE")
-		private String TASSE;
+	 @Column(name="tasse")
+		private String tasse;
 	 
-	 @Column(name="COD_FISCALE")
-		private String CODICE_FISCALE;
+	 @Column(name="codFiscale")
+		private String codFiscale;
 		
-	 @Column(name="COD_DOCENTE")
-		private String CODICE_DOCENTE;
-//	 
-//	 @OneToOne(targetEntity = Studente.class)
-//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-//	 private List<Studente> matricola;
-//	 
-//	 @OneToOne(targetEntity = Docenti.class)
-//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "COD_DOCENTE")
-//	 private List<Docenti> COD_DOCENTE;
+	 @Column(name="codDocente")
+		private String codDocente;
+	 
+	 @OneToOne(targetEntity = Studente.class)
+	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+	 private List<Studente> matricola;
+	 
+	 @OneToOne(targetEntity = Docente.class)
+	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+	 private List<Docente> codDocente;
 }

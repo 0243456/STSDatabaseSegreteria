@@ -10,5 +10,5 @@ import lombok.*;
 
 
 public class SegreteriaRequest {
-	private Segreteria COD_SEGRETERIA;
+	private Segreteria codSegreteria;
 }

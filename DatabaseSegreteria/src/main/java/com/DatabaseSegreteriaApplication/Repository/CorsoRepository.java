@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.DatabaseSegreteriaApplication.DBmodel.Corso;
 
+@Repository
 public interface CorsoRepository extends JpaRepository <Corso, String>{
 //	List<Corso> findAll();
 }

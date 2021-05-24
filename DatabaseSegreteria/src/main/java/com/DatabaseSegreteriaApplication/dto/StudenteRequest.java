@@ -1,11 +1,14 @@
 package com.DatabaseSegreteriaApplication.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
+import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
+import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
+import com.DatabaseSegreteriaApplication.services.StudenteService;
 
-import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +20,6 @@ public class StudenteRequest {
 //		private String matricola;
 		private String nome;
 		private String cognome;
-		private String cod_fiscale;
+		private String codFiscale;
 		private String email;
 		}

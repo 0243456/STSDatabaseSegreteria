@@ -22,8 +22,8 @@ import lombok.ToString;
 @ToString
 
 @Table(name="ESAMI")
-public class Esami implements Serializable {
-	 public Esami (String nome2, String cfu2, String dataEsame2, String voto2) {
+public class Esame implements Serializable {
+	 public Esame (String nome2, String cfu2, String dataEsame2, String voto2) {
 			this.nome=nome2;
 			this.cfu=cfu2;
 			this.dataEsame=dataEsame2;
@@ -46,23 +46,23 @@ public class Esami implements Serializable {
 	 
 	 @Column(name="voto")
 		private String voto;
-//	 @Column(name="COD_DOCENTE")
-//		private String COD_DOCENTE;
-//	 @Column(name="COD_CORSO")
-//		private String COD_CORSO;
+	 @Column(name="codDocente")
+		private String codDocente;
+	 @Column(name="codCorso")
+		private String codCorso;
 	
 	 
-//	 @OneToOne(targetEntity = Studente.class)
-//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-//	 private List<Studente> matricola;
-//	 
-//	 @OneToOne(targetEntity = Docenti.class)
-//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "COD_DOCENTE")
-//	 private List<Docenti> COD_DOCENTE;
-//	 
-//	 @OneToOne(targetEntity = Corsi.class)
-//	 @JoinColumn(name = " codCorso_fk", referencedColumnName = "COD_CORSO")
-//	 private List<Corsi> COD_CORSO;
+	 @OneToOne(targetEntity = Studente.class)
+	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+	 private List<Studente> matricola;
+	 
+	 @OneToOne(targetEntity = Docente.class)
+	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+	 private List<Docente> codDocente;
+	 
+	 @OneToOne(targetEntity = Corso.class)
+	 @JoinColumn(name = " codCorso_fk", referencedColumnName = "codCorso")
+	 private List<Corso> codCorso;
 	 
 	 @ManyToOne
 	 @JoinColumn(name="studente_matricola")
@@ -70,7 +70,7 @@ public class Esami implements Serializable {
 	 
 	 @ManyToOne
 	 @JoinColumn(name="codCorso")
-	 Corso corsi;
+	 Corso corso;
 	 
 	 
 	 

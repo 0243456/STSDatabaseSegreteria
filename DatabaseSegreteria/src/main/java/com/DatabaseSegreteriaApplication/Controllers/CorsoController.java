@@ -19,14 +19,15 @@ import com.DatabaseSegreteriaApplication.DBmodel.Docente;
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
-import com.DatabaseSegreteriaApplication.Repository.DocentiRepository;
-import com.DatabaseSegreteriaApplication.Repository.EsamiRepository;
+import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
+import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.dto.CorsoRequest;
 import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
 import com.DatabaseSegreteriaApplication.services.CorsoService;
 import com.DatabaseSegreteriaApplication.services.EsamiService;
+
 
 import static org.springframework.http.HttpStatus.OK;
 
@@ -39,25 +40,25 @@ public class CorsoController {
 	private StudenteRepository studenteRepository;
 	private SegreteriaRepository segreteriaRepository;
 	private BancaRepository bancaRepository;
-	private DocentiRepository docentiRepository;
+	private DocenteRepository docenteRepository;
 	
 	
 	@Autowired
-	private CorsoRepository	corsiRepository;
+	private CorsoRepository	corsoRepository;
 	@Autowired 
-	private CorsoService corsiService;
+	private CorsoService corsoService;
 	
 	@Autowired
-	private EsamiRepository esamiRepository;
+	private EsameRepository esameRepository;
 	
 	@Autowired
-	private EsamiService esamiService;
+	private EsameService esameService;
 	
 	
 	
 	@GetMapping("/corsi")
 	public ResponseEntity<List<Corso>> allUser(){
-		List <Corso> C = corsiRepository.findAll();
+		List <Corso> C = corsoRepository.findAll();
 		return ResponseEntity.status(OK).body(C);
 	}
 	
@@ -65,18 +66,18 @@ public class CorsoController {
 	public ResponseEntity<Void> aggiungiCorso(@RequestBody CorsoRequest corsoRequest){
 		Corso corso = new Corso();
 		
-		Optional<Docente> OptionalDoc = docentiRepository.findById(corsoRequest.getCodDocente());
+		Optional<Docente> OptionalDoc = docenteRepository.findById(corsoRequest.getCodDocente());
 		Docente docente = OptionalDoc.get();
 		corso.setDocente(docente);
 		
-//		Optional<Studente> OptionalM = studenteRepository.findById(corsoRequest.getMatricola());
-//		Studente studente = OptionalM.get();
-//		corso.setStudente(studente);
+		Optional<Studente> OptionalM = studenteRepository.findById(corsoRequest.getMatricola());
+		Studente studente = OptionalM.get();
+		corso.setStudente(studente);
 		
 		corso.setDurata(corsoRequest.getDurata());
 		corso.setNome(corsoRequest.getNome());
 		
-		corsiRepository.save(corso);
+		corsoRepository.save(corso);
 		System.out.println(corso.toString());
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 		

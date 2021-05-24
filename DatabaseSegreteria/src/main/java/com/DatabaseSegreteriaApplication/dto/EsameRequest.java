@@ -3,7 +3,7 @@ package com.DatabaseSegreteriaApplication.dto;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Esami;
+import com.DatabaseSegreteriaApplication.DBmodel.Esame;
 
 import lombok.*;
 @Data
@@ -12,7 +12,7 @@ import lombok.*;
 @ToString
 
 public class EsameRequest {
-//	private Long codEsame;
+	private Long codEsame;
 	private String nome;
 	private String cfu;
 	private String dataEsame;

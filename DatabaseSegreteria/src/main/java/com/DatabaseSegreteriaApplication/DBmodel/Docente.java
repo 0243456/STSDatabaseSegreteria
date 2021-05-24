@@ -34,9 +34,9 @@ public class Docente {
 		private String materia;
 
 	 
-//	 @OneToOne(targetEntity = Corsi.class)
-//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "cod_docente")
-//	 private List<Docenti> cod_docente;
+	 @OneToOne(targetEntity = Corso.class)
+	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+	 private List<Docente> codDocente;
 	 
 	 
 	 

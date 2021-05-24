@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @AutoConfigureAfter
 
-public interface DocentiService {
-	String docentiService();
+public class DocenteService {
+	String docenteService() {
+		return null;
+	}
 }

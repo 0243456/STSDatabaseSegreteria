@@ -9,5 +9,5 @@ import lombok.*;
 @ToString
 
 public class DocenteRequest {
-	private Docente COD_DOCENTE;
+	private Docente codDocente;
 }

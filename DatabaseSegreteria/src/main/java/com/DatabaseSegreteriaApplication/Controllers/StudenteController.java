@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
-import com.DatabaseSegreteriaApplication.Repository.DocentiRepository;
-import com.DatabaseSegreteriaApplication.Repository.EsamiRepository;
+import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
+import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
@@ -37,8 +37,8 @@ public class StudenteController {
 	private SegreteriaRepository segreteriaRepository;
 	private CorsoRepository	corsiRepository;
 	private BancaRepository bancaRepository;
-	private DocentiRepository docentiRepository;
-	private EsamiRepository esamiRepository;
+	private DocenteRepository docenteRepository;
+	private EsameRepository esameRepository;
 	
 	@Autowired
 	StudenteService studenteService;
@@ -55,11 +55,11 @@ public class StudenteController {
 	
 	@PostMapping("/iscrizioni")
 	public ResponseEntity<Void> iscrizioni(@RequestBody StudenteRequest studenteRequest) {
-//		studenteRepository.save(studenteRequest);
-//		studenteService.create(studenteRequest);
+		studenteRepository.save(studenteRequest);
+		studenteService.create(studenteRequest);
 		Studente studente = new Studente();
 	
-//		studente.setMatricola(studenteRequest.getMatricola());
+		studente.setMatricola(studenteRequest.getMatricola());
 		studente.setCod_fiscale(studenteRequest.getCod_fiscale());
 		studente.setCognome( studenteRequest.getCognome());
 		studente.setEmail(studenteRequest.getEmail());

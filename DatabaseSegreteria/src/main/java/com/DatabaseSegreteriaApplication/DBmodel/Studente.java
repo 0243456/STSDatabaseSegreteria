@@ -25,25 +25,29 @@ import lombok.ToString;
 @Table(name="STUDENTI")
 public class Studente implements Serializable {
 	
-	 public Studente(String nome2, String cognome2, String cod_fiscale2, String email2) {
+	 public Studente(String nome2, String cognome2, String codFiscale2, String email2) {
 		this.nome=nome2;
-		this.cod_fiscale=cod_fiscale2;
+		this.codFiscale=codFiscale2;
 		this.cognome=cognome2;
 		this.email=email2;
 	}
 	 
-	 @Id
+	 public Studente() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Id
 	 @Column(name = "matricola")
 	 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "studente_matricola")
 	 @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	 private Long id;
-//	@Id
-//	 @GeneratedValue(strategy = IDENTITY)
-//	 @Column(name="matricola")
-//	public Long matricola;
-//	 @ManyToOne()
-//	 @JoinColumn(name="segreteria")
-//	 Segreteria segreteria;
+	@Id
+	 @GeneratedValue(strategy = IDENTITY)
+	 @Column(name="matricola")
+	public Long matricola;
+	 @ManyToOne()
+	 @JoinColumn(name="segreteria")
+	 Segreteria segreteria;
 	 
 	 
 	 
@@ -54,8 +58,8 @@ public class Studente implements Serializable {
 	 public String cognome;
 	 
 	
-	 @Column(name="cod_fiscale")
-	 public String cod_fiscale;
+	 @Column(name="codFiscale")
+	 public String codFiscale;
 		
 	 @Column(name="email")
 	 public String email;

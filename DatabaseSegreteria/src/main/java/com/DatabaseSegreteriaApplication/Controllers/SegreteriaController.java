@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
-import com.DatabaseSegreteriaApplication.Repository.DocentiRepository;
-import com.DatabaseSegreteriaApplication.Repository.EsamiRepository;
+import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
+import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.services.SegreteriaService;
@@ -32,8 +32,8 @@ public class SegreteriaController {
 	private SegreteriaRepository segreteriaRepository;
 	private CorsoRepository	corsiRepository;
 	private BancaRepository bancaRepository;
-	private DocentiRepository docentiRepository;
-	private EsamiRepository esamiRepository;
+	private DocenteRepository docenteRepository;
+	private EsameRepository esameRepository;
 	
 	@GetMapping("/admin")
 	public String allUser(){

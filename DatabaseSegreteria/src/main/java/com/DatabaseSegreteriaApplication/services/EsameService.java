@@ -13,7 +13,7 @@ import lombok.Data;
 @AutoConfigureAfter
 @Transactional
 @Data
-public class EsamiService {
+public class EsameService {
 	public void create(EsameRequest esameRequest) {
 		
 	}

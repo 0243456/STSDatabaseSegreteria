@@ -16,21 +16,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 @AutoConfigureAfter
 @Service
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Transactional
 @Data
 public class StudenteService {
-//	@Autowired
-//	StudenteRepository studenteRepository;
+	@Autowired
+	StudenteRepository studenteRepository;
 
 
 
 	public void create(StudenteRequest studenteRequest) {
-//		Studente studente = new Studente(studenteRequest.getNome(), studenteRequest.getCognome(),
-//				studenteRequest.getCod_fiscale(), studenteRequest.getEmail());
-//		studenteRepository.save(studente);
-//		System.out.println(studente.toString());
+		Studente studente = new Studente(studenteRequest.getNome(), studenteRequest.getCognome(),
+				studenteRequest.getCod_fiscale(), studenteRequest.getEmail());
+		studenteRepository.save(studente);
+		System.out.println(studente.toString());
 	}
 
 }

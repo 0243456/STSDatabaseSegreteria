@@ -13,24 +13,32 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 @Configuration
-@Entity
+//@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
 
+
 @Table(name="corsi")
 public class Corso implements Serializable {
 	
 
-//	public Corso(String nome2, String durata2, String codDocente) {
-//		this.nome=nome2;
-//		this.durata=durata2;
-//		this.codDocente=codDocente;
-//	}
+	
+
+	public Corso(String nome2, String durata2, String codDocente) {
+		this.nome=nome2;
+		this.durata=durata2;
+		this.codDocente=codDocente;
+	}
 	
 	
+	public Corso() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Id
 	 @Column(name="codCorso")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "codCorso")
@@ -44,9 +52,9 @@ public class Corso implements Serializable {
 	 
 
 	 
-//	 @ManyToOne
-//	 @JoinColumn(name="matricola")
-//		private Studente studente;
+	 @ManyToOne
+	 @JoinColumn(name="matricola")
+		private Studente studente;
 	 
 	 @ManyToOne
 	 @JoinColumn(name="codDocente")
@@ -54,21 +62,21 @@ public class Corso implements Serializable {
 	 
 	 
 	 	
-//	 @OneToOne(targetEntity = Studente.class)
-//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-//	 private List<Studente> matricola;
-//	 
-//	 @OneToOne(targetEntity = Docenti.class)
-//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "cod_docente")
-//	 private List<Docenti> cod_docente;
-//	 
-//	 @OneToOne(targetEntity = Docenti.class)
-//	 @JoinColumn(name = " codCorso_fk", referencedColumnName = "COD_CORSO")
-//	 private List<Corsi> COD_CORSO;
-//	 
-//	 @OneToOne(targetEntity = Corsi.class)
-//	 @JoinColumn(name = " codEsame_fk", referencedColumnName = "COD_ESAME")
-//	 private List<Esami> COD_ESAME;
+	 @OneToOne(targetEntity = Studente.class)
+	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+	 private List<Studente> matricola;
+	 
+	 @OneToOne(targetEntity = Docente.class)
+	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+	 private List<Docente> codDocente;
+	 
+	 @OneToOne(targetEntity = Docente.class)
+	 @JoinColumn(name = " codCorso_fk", referencedColumnName = "codCorso")
+	 private List<Corso> codCorso;
+	 
+	 @OneToOne(targetEntity = Corso.class)
+	 @JoinColumn(name = " codEsame_fk", referencedColumnName = "codEsame")
+	 private List<Esami> codEsame;
 	 
 	 
 }

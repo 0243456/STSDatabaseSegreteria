@@ -20,6 +20,6 @@ public class CorsoRequest {
 		private String nome;
 		private String durata;
 		private String codDocente;
-//		private String matricola;
+		private String matricola;
 		
 }

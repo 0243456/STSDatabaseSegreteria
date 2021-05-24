@@ -8,7 +8,7 @@ import com.DatabaseSegreteriaApplication.DBmodel.Banca;
 
 import java.util.List;
 
-
+@Repository
 public interface BancaRepository extends JpaRepository <Banca, String> {
 	List<Banca> findAll();
 

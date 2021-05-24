@@ -8,7 +8,7 @@ import com.DatabaseSegreteriaApplication.DBmodel.Segreteria;
 
 import java.util.List;
 
-
+@Repository
 public interface SegreteriaRepository extends JpaRepository <Segreteria, Long> {
 	List<Segreteria> findAll();
 

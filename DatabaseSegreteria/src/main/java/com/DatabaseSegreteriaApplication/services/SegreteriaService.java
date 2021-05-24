@@ -5,7 +5,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @AutoConfigureAfter
 
-public interface SegreteriaService {
-	String segreteriaService();
+public class SegreteriaService {
+	String segreteriaService() {
+		return null;
+	}
 
 }

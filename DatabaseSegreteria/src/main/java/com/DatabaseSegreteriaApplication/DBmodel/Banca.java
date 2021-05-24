@@ -22,22 +22,22 @@ import lombok.ToString;
 public class Banca {
 	
 	@Id
-	 @Column(name="COD_BANCA")
-		private String CODICE_BANCA;
-	 @Column(name="PAGAMENTI")
-		private String PAGAMENTI;
+	 @Column(name="codBanca")
+		private String codBanca;
+	 @Column(name="pagamenti")
+		private String pagamenti;
 	 
-	 @Column(name="COD_SEGRETERIA")
-		private String CODICE_SEGRETERIA;
+	 @Column(name="codSegreteria")
+		private String codSegreteria;
 	 
-	 @Column(name="COD_FISCALE")
-		private String CODICE_FISCALE;
+	 @Column(name="codFiscale")
+		private String codFiscale;
 	 	
-//	 @OneToOne(targetEntity = Studente.class)
-//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-//	 private List<Studente> matricola;
-//	 
-//	 @OneToOne(targetEntity = Segreteria.class)
-//	 @JoinColumn(name = " COD_SEGRETERIA_fk", referencedColumnName = "COD_SEGRETERIA")
-//	 private List<Segreteria> COD_SEGRETERIA;
+	 @OneToOne(targetEntity = Studente.class)
+	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+	 private List<Studente> matricola;
+	 
+	 @OneToOne(targetEntity = Segreteria.class)
+	 @JoinColumn(name = " codSegreteria_fk", referencedColumnName = "codSegreteria")
+	 private List<Segreteria> codSegreteria;
 }
