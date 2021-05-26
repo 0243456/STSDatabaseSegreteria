@@ -5,10 +5,9 @@ import javax.transaction.Transactional;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Configuration;
 
-import com.DatabaseSegreteriaApplication.dto.EsameRequest;
-import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
+import com.DatabaseSegreteriaApplication.dto.EsameRequest;import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
 
-import lombok.Data;
+import lombok.*;
 @Configuration
 @AutoConfigureAfter
 @Transactional

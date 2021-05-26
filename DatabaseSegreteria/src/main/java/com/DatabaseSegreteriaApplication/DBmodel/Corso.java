@@ -7,36 +7,29 @@ import javax.persistence.*;
 
 import org.springframework.context.annotation.Configuration;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-@Configuration
+import lombok.*;
+
+//@Configuration
 //@Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
+//@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@ToString
 
 
-@Table(name="corsi")
+//@Table(name="corsi")
 public class Corso implements Serializable {
 	
 
 	
 
-	public Corso(String nome2, String durata2, String codDocente) {
-		this.nome=nome2;
-		this.durata=durata2;
-		this.codDocente=codDocente;
-	}
+//	public Corso(String nome2, String durata2, Long codCorso2) {
+//		this.nome=nome2;
+//		this.durata=durata2;
+//		this.codCorso=codCorso2;
+//	}
 	
-	
-	public Corso() {
-		// TODO Auto-generated constructor stub
-	}
 
 
 	@Id
@@ -44,40 +37,107 @@ public class Corso implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "codCorso")
 	 @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 		private Long codCorso;
+	
 	 @Column(name="nome")
 		private String nome;
 	 
 	 @Column(name="durata")
 		private String durata;
 	 
+	 Studente studente;
+	
+	 
+	 public Studente getStudente() {
+		return studente;
+	}
 
-	 
-	 @ManyToOne
-	 @JoinColumn(name="matricola")
-		private Studente studente;
-	 
-	 @ManyToOne
+
+
+
+	public void setStudente(Studente studente) {
+		this.studente = studente;
+	}
+
+
+
+
+	@ManyToOne
 	 @JoinColumn(name="codDocente")
 	 	private Docente docente;
+
+
+
+
+	public Long getCodCorso() {
+		return codCorso;
+	}
+
+
+
+
+	public void setCodCorso(Long codCorso) {
+		this.codCorso = codCorso;
+	}
+
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+
+	public String getDurata() {
+		return durata;
+	}
+
+
+
+
+	public void setDurata(String durata) {
+		this.durata = durata;
+	}
+
+
+
+
+	public Docente getDocente() {
+		return docente;
+	}
+
+
+
+
+	public void setDocente(Docente docente) {
+		this.docente = docente;
+	}
 	 
 	 
-	 	
-	 @OneToOne(targetEntity = Studente.class)
-	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-	 private List<Studente> matricola;
-	 
-	 @OneToOne(targetEntity = Docente.class)
-	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
-	 private List<Docente> codDocente;
-	 
-	 @OneToOne(targetEntity = Docente.class)
-	 @JoinColumn(name = " codCorso_fk", referencedColumnName = "codCorso")
-	 private List<Corso> codCorso;
-	 
-	 @OneToOne(targetEntity = Corso.class)
-	 @JoinColumn(name = " codEsame_fk", referencedColumnName = "codEsame")
-	 private List<Esami> codEsame;
-	 
+//	 	
+//	 @ManyToOne(targetEntity = Studente.class)
+//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+//	 private List<Studente> matricola;
+//	 
+//	 @ManyToOne(targetEntity = Docente.class)
+//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+//	 private List<Docente> codDocente;
+//	 
+//	 
+//	 @ManyToOne(targetEntity = Esame.class)
+//	 @JoinColumn(name = " codEsame_fk", referencedColumnName = "codEsame")
+//	 private List<Esame> codEsame;
+
+
+
 	 
 }
 

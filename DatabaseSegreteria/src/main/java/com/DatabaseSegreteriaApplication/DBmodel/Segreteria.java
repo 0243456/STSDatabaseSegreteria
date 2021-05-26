@@ -6,20 +6,17 @@ import javax.persistence.*;
 
 import org.springframework.context.annotation.Configuration;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-@Configuration
-@Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
+import lombok.*;
 
-@Table(name="SEGRETERIA")
+//@Configuration
+//@Entity
+//@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@ToString
+//
+//@Table(name="SEGRETERIA")
 public class Segreteria {
 	
 	 @Id
@@ -39,11 +36,11 @@ public class Segreteria {
 	 @Column(name="codDocente")
 		private String codDocente;
 	 
-	 @OneToOne(targetEntity = Studente.class)
-	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-	 private List<Studente> matricola;
-	 
-	 @OneToOne(targetEntity = Docente.class)
-	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
-	 private List<Docente> codDocente;
+//	 @OneToOne(targetEntity = Studente.class)
+//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+//	 private List<Studente> matricola;
+//	 
+//	 @OneToOne(targetEntity = Docente.class)
+//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+//	 private List<Docente> codDocente;
 }

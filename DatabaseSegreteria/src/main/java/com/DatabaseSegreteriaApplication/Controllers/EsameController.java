@@ -1,8 +1,7 @@
 package com.DatabaseSegreteriaApplication.Controllers;
 
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Esami;
+import com.DatabaseSegreteriaApplication.DBmodel.Esame;
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
@@ -25,7 +24,9 @@ import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.dto.EsameRequest;
 import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
-import com.DatabaseSegreteriaApplication.services.EsamiService;
+import com.DatabaseSegreteriaApplication.services.EsameService;
+import com.DatabaseSegreteriaApplication.services.StudenteService;
+
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
@@ -37,6 +38,7 @@ import static org.springframework.http.HttpStatus.OK;
 public class EsameController {
 	@Autowired
 	private StudenteRepository studenteRepository;
+	
 	private SegreteriaRepository segreteriaRepository;
 	private CorsoRepository	corsoRepository;
 	private BancaRepository bancaRepository;
@@ -44,20 +46,27 @@ public class EsameController {
 	@Autowired
 	private EsameRepository esameRepository;
 	
+//	@Autowired 
+//	private StudenteRequest studenteRequest;
+//	
+//	@Autowired
+//	private StudenteService	studenteService;
+//	
+	
 	@GetMapping("/esami")
-	public ResponseEntity<List<Esami>> allUser(){
-		List<Esami>  E= esameRepository.findAll();
+	public ResponseEntity<List<Esame>> allUser(){
+		List<Esame>  E= esameRepository.findAll();
 		return ResponseEntity.status(OK).body(E);
 		}
 	
 	@PostMapping("/inserisciEsame")
 	public ResponseEntity<Void> esamiEffetuati(@RequestBody EsameRequest esameRequest){
-		studenteRepository.save(studenteRequest);
-		studenteService.create(studenteRequest);
-		Esami esame = new Esami();
+//		studenteRepository.save(studenteRequest);
+//		studenteService.create(studenteRequest);
+		Esame esame = new Esame();
 	
-		studente.setMatricola(studenteRequest.getMatricola());
-		esame.setCodEsame(esameRequest.getCodEsame());
+//		studente.setMatricola(studenteRequest.getMatricola());
+//		esame.setCodEsame(esameRequest.getCodEsame());
 		esame.setNome( esameRequest.getNome());
 		esame.setCfu(esameRequest.getCfu());
 		esame.setDataEsame(esameRequest.getDataEsame());

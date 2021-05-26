@@ -5,18 +5,15 @@ import javax.persistence.*;
 
 import org.springframework.context.annotation.Configuration;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+
 @Configuration
 @Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
+//@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@ToString
 
 @Table(name="BANCA")
 public class Banca {
@@ -33,11 +30,11 @@ public class Banca {
 	 @Column(name="codFiscale")
 		private String codFiscale;
 	 	
-	 @OneToOne(targetEntity = Studente.class)
-	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-	 private List<Studente> matricola;
+//	 @OneToOne(targetEntity = Studente.class)
+//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+//	 private List<Studente> matricola;
 	 
-	 @OneToOne(targetEntity = Segreteria.class)
-	 @JoinColumn(name = " codSegreteria_fk", referencedColumnName = "codSegreteria")
-	 private List<Segreteria> codSegreteria;
+//	 @OneToOne(targetEntity = Segreteria.class)
+//	 @JoinColumn(name = " codSegreteria_fk", referencedColumnName = "codSegreteria")
+//	 private List<Segreteria> codSegreteria;
 }

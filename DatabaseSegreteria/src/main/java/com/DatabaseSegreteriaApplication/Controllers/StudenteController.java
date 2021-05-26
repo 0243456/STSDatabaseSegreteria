@@ -14,18 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
+import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
 import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
 import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
-import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
 import com.DatabaseSegreteriaApplication.services.StudenteService;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
@@ -34,11 +33,6 @@ import static org.springframework.http.HttpStatus.OK;
 @Data
 @RequestMapping("/home")
 public class StudenteController {
-	private SegreteriaRepository segreteriaRepository;
-	private CorsoRepository	corsiRepository;
-	private BancaRepository bancaRepository;
-	private DocenteRepository docenteRepository;
-	private EsameRepository esameRepository;
 	
 	@Autowired
 	StudenteService studenteService;
@@ -55,12 +49,12 @@ public class StudenteController {
 	
 	@PostMapping("/iscrizioni")
 	public ResponseEntity<Void> iscrizioni(@RequestBody StudenteRequest studenteRequest) {
-		studenteRepository.save(studenteRequest);
-		studenteService.create(studenteRequest);
+//		studenteRepository.save(studenteRequest);
+//		studenteService.create(studenteRequest);
 		Studente studente = new Studente();
 	
-		studente.setMatricola(studenteRequest.getMatricola());
-		studente.setCod_fiscale(studenteRequest.getCod_fiscale());
+//		studente.setMatricola(studenteRequest.getMatricola());
+		studente.setCodFiscale(studenteRequest.getCodFiscale());
 		studente.setCognome( studenteRequest.getCognome());
 		studente.setEmail(studenteRequest.getEmail());
 		studente.setNome(studenteRequest.getNome());

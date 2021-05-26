@@ -1,11 +1,10 @@
 package com.DatabaseSegreteriaApplication.Controllers;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.context.annotation.Configuration;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,30 +16,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DatabaseSegreteriaApplication.DBmodel.Corso;
 import com.DatabaseSegreteriaApplication.DBmodel.Docente;
 import com.DatabaseSegreteriaApplication.DBmodel.Studente;
-import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
 import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
 import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
-import com.DatabaseSegreteriaApplication.dto.CorsoRequest;
 import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
+import com.DatabaseSegreteriaApplication.dto.CorsoRequest;
 import com.DatabaseSegreteriaApplication.services.CorsoService;
-import com.DatabaseSegreteriaApplication.services.EsamiService;
+import com.DatabaseSegreteriaApplication.services.EsameService;
+
 
 
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
-@Configuration
-@AutoConfigureAfter
 @RequestMapping("/home")
 
 public class CorsoController {
-	private StudenteRepository studenteRepository;
-	private SegreteriaRepository segreteriaRepository;
-	private BancaRepository bancaRepository;
-	private DocenteRepository docenteRepository;
 	
 	
 	@Autowired
@@ -53,6 +46,16 @@ public class CorsoController {
 	
 	@Autowired
 	private EsameService esameService;
+	
+	@Autowired 
+	private DocenteRepository docenteRepository;
+	
+	@Autowired
+	private StudenteRepository studenteRepository;
+	
+	@Autowired
+	private StudenteRequest studenteRequest;
+	
 	
 	
 	
@@ -69,6 +72,13 @@ public class CorsoController {
 		Optional<Docente> OptionalDoc = docenteRepository.findById(corsoRequest.getCodDocente());
 		Docente docente = OptionalDoc.get();
 		corso.setDocente(docente);
+		
+
+		corsoRepository.save(corsoRequest);
+		corsoService.create(corsoRequest);
+		
+		
+		
 		
 		Optional<Studente> OptionalM = studenteRepository.findById(corsoRequest.getMatricola());
 		Studente studente = OptionalM.get();

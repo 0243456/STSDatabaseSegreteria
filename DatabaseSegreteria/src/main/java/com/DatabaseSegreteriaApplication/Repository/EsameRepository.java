@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import com.DatabaseSegreteriaApplication.DBmodel.Esame;
+import com.DatabaseSegreteriaApplication.dto.EsameRequest;
 
 @Repository
 public interface EsameRepository extends JpaRepository <Esame, String>{

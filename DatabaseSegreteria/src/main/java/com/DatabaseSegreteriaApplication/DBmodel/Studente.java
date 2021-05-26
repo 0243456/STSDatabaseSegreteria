@@ -8,21 +8,17 @@ import org.hibernate.annotations.Generated;
 import static javax.persistence.GenerationType.IDENTITY;
 import org.springframework.context.annotation.Configuration;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-@Configuration
-@Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
+import lombok.*;
 
-
-@Table(name="STUDENTI")
+//@Configuration
+//@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@ToString
+//
+//@Entity
+//@Table(name="STUDENTI")
 public class Studente implements Serializable {
 	
 	 public Studente(String nome2, String cognome2, String codFiscale2, String email2) {
@@ -32,8 +28,8 @@ public class Studente implements Serializable {
 		this.email=email2;
 	}
 	 
-	 public Studente() {
-		// TODO Auto-generated constructor stub
+	public Studente() {
+		
 	}
 
 	@Id
@@ -41,14 +37,10 @@ public class Studente implements Serializable {
 	 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "studente_matricola")
 	 @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	 private Long id;
-	@Id
-	 @GeneratedValue(strategy = IDENTITY)
-	 @Column(name="matricola")
-	public Long matricola;
-	 @ManyToOne()
-	 @JoinColumn(name="segreteria")
-	 Segreteria segreteria;
-	 
+//	@Id
+//	 @GeneratedValue(strategy = IDENTITY)
+//	 @Column(name="matricola")
+//	public Long matricola;
 	 
 	 
 	 @Column(name="nome")
@@ -63,69 +55,49 @@ public class Studente implements Serializable {
 		
 	 @Column(name="email")
 	 public String email;
-	 
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+
+	public String getCodFiscale() {
+		return codFiscale;
+	}
+
+	public void setCodFiscale(String codFiscale) {
+		this.codFiscale = codFiscale;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	
 	 
-	 
-	 
-//		public String getMatricola() {
-//			return matricola;
-//		}
-//
-//		public void setMatricola(String matricola) {
-//			this.matricola = matricola;
-//		}
-		
-	
-
-//	public String getNome() {
-//		return nome;
-//	}
-//
-//	public void setNome(String nome) {
-//		this.nome = nome;
-//	}
-	
-	
-
-//	public String getCognome() {
-//		return cognome;
-//	}
-//
-//	public void setCognome(String cognome) {
-//		this.cognome = cognome;
-//	}
-	
-	
-
-//	public String getCod_fiscale() {
-//		return cod_fiscale;
-//	}
-//
-//	public void setCod_fiscale(String cod_fiscale) {
-//		this.cod_fiscale = cod_fiscale;
-//	}
-	
-
-
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-
-//	@Override
-//	public String toString() {
-//		return "Studente [matricola=" + matricola + ", nome=" + nome + ", cognome=" + cognome + ", cod_fiscale="
-//				+ cod_fiscale + ", email=" + email + ", getMatricola()=" +  ", getNome()=" 
-//				+ ", getCognome()=" + getCognome() + ", getCod_fiscale()=" + getCod_fiscale() + ", getEmail()="
-//				+ getEmail() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-//				+ super.toString() + "]";
-//	}
-
-
 
 	 
 }

@@ -13,7 +13,7 @@ import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
 import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
-import com.DatabaseSegreteriaApplication.services.DocentiService;
+import com.DatabaseSegreteriaApplication.services.DocenteService;
 @RestController
 @Configuration
 @AutoConfigureAfter
