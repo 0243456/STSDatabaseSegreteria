@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.DatabaseSegreteriaApplication.DBmodel.Docente;
 
 @Repository
+@EnableJpaRepositories
 public interface DocenteRepository extends JpaRepository <Docente, String>{
 	List<Docente> findAll();
 }

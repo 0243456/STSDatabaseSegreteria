@@ -7,18 +7,20 @@ import javax.persistence.*;
 
 import org.springframework.context.annotation.Configuration;
 
+import com.DatabaseSegreteriaApplication.DBmodel.Studente;
+
 import lombok.*;
 
-//@Configuration
-//@Entity
-//@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Data
-//@ToString
+@Configuration
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
 
 
-//@Table(name="corsi")
+@Table(name="corsi")
 public class Corso implements Serializable {
 	
 

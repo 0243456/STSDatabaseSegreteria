@@ -10,6 +10,7 @@ import com.DatabaseSegreteriaApplication.DBmodel.Corso;
 import com.DatabaseSegreteriaApplication.dto.CorsoRequest;
 
 @Repository
+@EnableJpaRepositories
 public interface CorsoRepository extends JpaRepository <Corso, String>{
 //	List<Corso> findAll();
 	public void save(CorsoRequest corsoRequest);

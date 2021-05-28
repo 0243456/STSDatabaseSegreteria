@@ -6,23 +6,20 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.http.*;
+
+import org.springframework.web.bind.annotation.*;
 
 import com.DatabaseSegreteriaApplication.DBmodel.Esame;
-import com.DatabaseSegreteriaApplication.DBmodel.Studente;
-import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
-import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
-import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
+//import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
+//import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
+//import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
 import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
-import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
+//import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.dto.EsameRequest;
+import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
 import com.DatabaseSegreteriaApplication.services.EsameService;
 import com.DatabaseSegreteriaApplication.services.StudenteService;
@@ -39,10 +36,10 @@ public class EsameController {
 	@Autowired
 	private StudenteRepository studenteRepository;
 	
-	private SegreteriaRepository segreteriaRepository;
-	private CorsoRepository	corsoRepository;
-	private BancaRepository bancaRepository;
-	private DocenteRepository docenteRepository;
+//	private SegreteriaRepository segreteriaRepository;
+//	private CorsoRepository	corsoRepository;
+//	private BancaRepository bancaRepository;
+//	private DocenteRepository docenteRepository;
 	@Autowired
 	private EsameRepository esameRepository;
 	
@@ -55,7 +52,7 @@ public class EsameController {
 	
 	@GetMapping("/esami")
 	public ResponseEntity<List<Esame>> allUser(){
-		List<Esame>  E= esameRepository.findAll();
+		List<Esame>  E=  esameRepository.findAll();
 		return ResponseEntity.status(OK).body(E);
 		}
 	

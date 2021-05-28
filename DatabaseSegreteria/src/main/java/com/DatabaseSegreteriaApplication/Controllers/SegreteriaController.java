@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
 import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
 import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
+import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.services.SegreteriaService;
 
 import static org.springframework.http.HttpStatus.OK;
@@ -42,7 +42,7 @@ public class SegreteriaController {
 	
 	@GetMapping("/allStudents")
 	public ResponseEntity<List> findAllStudents(){
-		List<Studente> listaStudenti=studenteRepository.findAll();
+		List<Studente> listaStudenti=(List<Studente>) studenteRepository.findAll();
 		System.out.println("QUESTI SONO GLI STUDENTI");
 		return ResponseEntity.status(OK).body(listaStudenti);
 	}

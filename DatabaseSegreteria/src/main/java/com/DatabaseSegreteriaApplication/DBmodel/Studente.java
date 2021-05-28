@@ -10,15 +10,15 @@ import org.springframework.context.annotation.Configuration;
 
 import lombok.*;
 
-//@Configuration
-//@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Data
-//@ToString
-//
-//@Entity
-//@Table(name="STUDENTI")
+@Configuration
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
+
+@Entity
+@Table(name="STUDENTI")
 public class Studente implements Serializable {
 	
 	 public Studente(String nome2, String cognome2, String codFiscale2, String email2) {

@@ -8,15 +8,15 @@ import org.springframework.context.annotation.Configuration;
 
 import lombok.*;
 
-//@Configuration
-//@Entity
-//@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Data
-//@ToString
-//
-//@Table(name="DOCENTI")
+@Configuration
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
+
+@Table(name="DOCENTI")
 public class Docente {
 	@Id
 	 @Column(name="codDocente")

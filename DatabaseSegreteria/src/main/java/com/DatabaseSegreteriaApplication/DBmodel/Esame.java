@@ -8,17 +8,19 @@ import javax.persistence.*;
 
 import org.springframework.context.annotation.Configuration;
 
+import com.DatabaseSegreteriaApplication.DBmodel.Studente;
+
 import lombok.*;
 
-//@Configuration
-//@Entity
-//@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Data
-//@ToString
-//
-//@Table(name="ESAMI")
+@Configuration
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
+
+@Table(name="ESAMI")
 public class Esame implements Serializable {
 	 public Esame (String nome2, String cfu2, String dataEsame2, String voto2) {
 			this.nome=nome2;

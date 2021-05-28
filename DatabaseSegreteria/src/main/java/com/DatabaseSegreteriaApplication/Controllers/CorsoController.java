@@ -2,28 +2,31 @@ package com.DatabaseSegreteriaApplication.Controllers;
 
 import java.util.*;
 
-import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
 
 import com.DatabaseSegreteriaApplication.DBmodel.Corso;
 import com.DatabaseSegreteriaApplication.DBmodel.Docente;
-import com.DatabaseSegreteriaApplication.DBmodel.Studente;
+import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
 import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
 import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
-import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
+import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
-import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
+
 import com.DatabaseSegreteriaApplication.dto.CorsoRequest;
+import com.DatabaseSegreteriaApplication.DBmodel.Studente;
+//import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
+import com.DatabaseSegreteriaApplication.services.StudenteService;
 import com.DatabaseSegreteriaApplication.services.CorsoService;
+//import com.DatabaseSegreteriaApplication.services.CorsoService;
 import com.DatabaseSegreteriaApplication.services.EsameService;
 
 
@@ -31,16 +34,25 @@ import com.DatabaseSegreteriaApplication.services.EsameService;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
+@Configuration
+@AutoConfigureAfter
 @RequestMapping("/home")
 
-public class CorsoController {
+public class CorsoController{
 	
+//	private SegreteriaRepository segreteriaRepository;
+//	private BancaRepository bancaRepository;
+//	private EsameRepository esameRepository;
+//	private SegreteriaRepository segreteriaRepository;
+//	private CorsoRepository	corspoRepository;
+//	private BancaRepository bancaRepository;
+//	private DocenteRepository docenteRepository;
 	
 	@Autowired
 	private CorsoRepository	corsoRepository;
-	@Autowired 
-	private CorsoService corsoService;
-	
+
+//	@Autowired
+//	private CorsoService corsoService;
 	@Autowired
 	private EsameRepository esameRepository;
 	
@@ -52,11 +64,9 @@ public class CorsoController {
 	
 	@Autowired
 	private StudenteRepository studenteRepository;
-	
+
 	@Autowired
-	private StudenteRequest studenteRequest;
-	
-	
+	StudenteService studenteService;
 	
 	
 	@GetMapping("/corsi")
@@ -65,6 +75,7 @@ public class CorsoController {
 		return ResponseEntity.status(OK).body(C);
 	}
 	
+	@Transactional
 	@PostMapping("/aggiungiCorso")
 	public ResponseEntity<Void> aggiungiCorso(@RequestBody CorsoRequest corsoRequest){
 		Corso corso = new Corso();
@@ -74,9 +85,9 @@ public class CorsoController {
 		corso.setDocente(docente);
 		
 
-		corsoRepository.save(corsoRequest);
-		corsoService.create(corsoRequest);
-		
+//		corsoRepository.save(corsoRequest);
+//		corsoService.create(corsoRequest);
+//		
 		
 		
 		
@@ -90,6 +101,11 @@ public class CorsoController {
 		corsoRepository.save(corso);
 		System.out.println(corso.toString());
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
+		
+	}
+
+	public void create(CorsoRequest corsoRequest) {
+		// TODO Auto-generated method stub
 		
 	}
 }

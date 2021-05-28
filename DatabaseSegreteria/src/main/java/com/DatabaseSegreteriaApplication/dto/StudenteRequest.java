@@ -4,7 +4,6 @@ import lombok.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Studente;
 import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
 import com.DatabaseSegreteriaApplication.dto.StudenteRequest;
 import com.DatabaseSegreteriaApplication.services.StudenteService;
