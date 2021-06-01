@@ -4,44 +4,17 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Generated;
-import static javax.persistence.GenerationType.IDENTITY;
-import org.springframework.context.annotation.Configuration;
-
-import lombok.*;
-
-@Configuration
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
 
 @Entity
 @Table(name="STUDENTI")
 public class Studente implements Serializable {
 	
-	 public Studente(String nome2, String cognome2, String codFiscale2, String email2) {
-		this.nome=nome2;
-		this.codFiscale=codFiscale2;
-		this.cognome=cognome2;
-		this.email=email2;
-	}
-	 
-	public Studente() {
-		
-	}
-
 	@Id
 	 @Column(name = "matricola")
 	 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "studente_matricola")
 	 @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
-	 private Long id;
-//	@Id
-//	 @GeneratedValue(strategy = IDENTITY)
-//	 @Column(name="matricola")
-//	public Long matricola;
-	 
+	 private Long matricola;
+
 	 
 	 @Column(name="nome")
 	 public String nome;
@@ -55,13 +28,29 @@ public class Studente implements Serializable {
 		
 	 @Column(name="email")
 	 public String email;
-
-	public Long getId() {
-		return id;
+	 
+	 
+	 
+	public Studente(Long matricola, String nome, String cognome, String codFiscale, String email) {
+		this.matricola = matricola;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.codFiscale = codFiscale;
+		this.email = email;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Studente() {
+		
+	}
+
+	
+
+	public Long getMatricola() {
+		return matricola;
+	}
+
+	public void setMatricola(Long matricola) {
+		this.matricola = matricola;
 	}
 
 	public String getNome() {
@@ -96,7 +85,11 @@ public class Studente implements Serializable {
 		this.email = email;
 	}
 
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 	 
 
 	 

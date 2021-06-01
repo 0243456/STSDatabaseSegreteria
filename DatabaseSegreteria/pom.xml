@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>2.5.1</version>
+			<version>2.4.8</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,9 +45,10 @@
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc10</artifactId>
+			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
+		<!--<dependency>
+		  	<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>5.5.0</version>
 		</dependency>
@@ -60,7 +61,7 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>5.5.0</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -71,11 +72,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>2.5.0</version>
 		</dependency>
-		<dependency>
+		<!--  <dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>5.5.0</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
@@ -105,12 +106,12 @@
 			</plugin>
 		</plugins>
 	</build>
-	<system.webServer>
+	<!--  <system.webServer>
 		<modules>
 			<remove name="WebDAVModule" />
 		</modules>
 		<handlers>
 			<remove name="WebDAVModule" />
 		</handlers>
-	</system.webServer>
+	</system.webServer>-->
 </project>

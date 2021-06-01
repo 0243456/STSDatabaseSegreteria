@@ -1,51 +1,63 @@
 package com.DatabaseSegreteriaApplication.Controllers;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DatabaseSegreteriaApplication.Repository.BancaRepository;
-import com.DatabaseSegreteriaApplication.Repository.CorsoRepository;
-import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
-import com.DatabaseSegreteriaApplication.Repository.EsameRepository;
-import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
-import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
-import com.DatabaseSegreteriaApplication.DBmodel.Studente;
-import com.DatabaseSegreteriaApplication.services.SegreteriaService;
 
-import static org.springframework.http.HttpStatus.OK;
+import com.DatabaseSegreteriaApplication.DBmodel.Segreteria;
+import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
+
 
 
 @RestController
-@Configuration
-@AutoConfigureAfter
-@RequestMapping("/home")
 public class SegreteriaController {
 	
-	private StudenteRepository studenteRepository;
-	private SegreteriaRepository segreteriaRepository;
-	private CorsoRepository	corsiRepository;
-	private BancaRepository bancaRepository;
-	private DocenteRepository docenteRepository;
-	private EsameRepository esameRepository;
+	@Autowired
+	SegreteriaRepository segreteriaRepository;
 	
-	@GetMapping("/admin")
-	public String allUser(){
-		return "SegreteriaAdmin";
+	@GetMapping("/listaAdmin")
+	public ArrayList<Segreteria> getAdmin(){
+		return (ArrayList<Segreteria>) segreteriaRepository.findAll();
+	}
+	//CRUD SUI SINGOLI ELEMENTI
+	
+	//UPDATE
+	
+	@PutMapping("/segreteria/{codSegreteria}")
+	public void updateAdmin(@PathVariable long codSegreteria, @RequestBody Segreteria segreteria) {
+		segreteria.setCodSegreteria(codSegreteria);
+		Segreteria segreteriaOut = segreteriaRepository.save(segreteria);
 	}
 	
-	@GetMapping("/allStudents")
-	public ResponseEntity<List> findAllStudents(){
-		List<Studente> listaStudenti=(List<Studente>) studenteRepository.findAll();
-		System.out.println("QUESTI SONO GLI STUDENTI");
-		return ResponseEntity.status(OK).body(listaStudenti);
+	//READ
+	@GetMapping("/segreteria{codSegreteria}")
+	public ResponseEntity<Segreteria> getAdmin(@PathVariable Long codSegreteria){
+		Optional<Segreteria> segreteriaOpt = segreteriaRepository.findById(codSegreteria);
+		return new ResponseEntity<Segreteria>(segreteriaOpt.get(), HttpStatus.NOT_FOUND);
 	}
 	
+	
+	//CREATE
+	@PostMapping("/segreteria/add")
+	public void createAdmin(@RequestBody Segreteria segreteria) {
+		segreteriaRepository.save(segreteria);
+	}
+	
+	//DELETE
+	@DeleteMapping("/segreteria/{codSegreteria}")
+	public void deleteAdmin(@PathVariable Long codSegreteria) {
+		Optional<Segreteria> segreteriaOpt = segreteriaRepository.findById(codSegreteria);
+		segreteriaRepository.delete(segreteriaOpt.get());
+	}
 	
 }

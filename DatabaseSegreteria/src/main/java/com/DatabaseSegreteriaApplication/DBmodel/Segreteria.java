@@ -1,40 +1,95 @@
 package com.DatabaseSegreteriaApplication.DBmodel;
 
-import java.util.List;
+
+import java.io.Serializable;
 
 import javax.persistence.*;
 
-import org.springframework.context.annotation.Configuration;
 
-import lombok.*;
 
-@Configuration
 @Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
-
 @Table(name="SEGRETERIA")
-public class Segreteria {
+public class Segreteria implements Serializable {
 	
-	 @Id
-	 @GeneratedValue
+	@Id
 	 @Column(name="codSegreteria")
-		private String codSegreteria;
+	 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="codSegreteria")
+	 @SequenceGenerator(name="id_Sequence", sequenceName = "ID_SEQ")
+		private Long codSegreteria;
 	 
 	 @Column(name="datiStudente")
-		private String datiStudente;
+	 public String datiStudente;
 	 
 	 @Column(name="tasse")
-		private String tasse;
+	 public String tasse;
 	 
 	 @Column(name="codFiscale")
-		private String codFiscale;
+	 public String codFiscale;
 		
 	 @Column(name="codDocente")
-		private String codDocente;
+	 public String codDocente;
+	 
+	 public Segreteria(Long codSegreteria, String datiStudente, String tasse, String codFiscale, String codDocente) {
+		 this.codSegreteria = codSegreteria;
+		 this.datiStudente = datiStudente;
+		 this.tasse = tasse;
+		 this.codFiscale = codFiscale;
+		 this.codDocente = codDocente;
+		 
+		
+	 }
+	 
+	 public Segreteria() {
+		 
+	 }
+	 
+	 
+	 public Long getCodSegreteria() {
+		return codSegreteria;
+	}
+
+	public void setCodSegreteria(Long codSegreteria) {
+		this.codSegreteria = codSegreteria;
+	}
+
+	public String getDatiStudente() {
+		return datiStudente;
+	}
+
+	public void setDatiStudente(String datiStudente) {
+		this.datiStudente = datiStudente;
+	}
+
+	public String getTasse() {
+		return tasse;
+	}
+
+	public void setTasse(String tasse) {
+		this.tasse = tasse;
+	}
+
+	public String getCodFiscale() {
+		return codFiscale;
+	}
+
+	public void setCodFiscale(String codFiscale) {
+		this.codFiscale = codFiscale;
+	}
+
+	public String getCodDocente() {
+		return codDocente;
+	}
+
+	public void setCodDocente(String codDocente) {
+		this.codDocente = codDocente;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
+
 	 
 //	 @OneToOne(targetEntity = Studente.class)
 //	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
