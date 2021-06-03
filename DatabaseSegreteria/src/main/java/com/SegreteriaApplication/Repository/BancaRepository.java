@@ -1,10 +1,10 @@
-package com.DatabaseSegreteriaApplication.Repository;
+package com.SegreteriaApplication.Repository;
 
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Banca;
+import com.SegreteriaApplication.DBmodel.Banca;
 
 
 @Repository("bancaRepository")

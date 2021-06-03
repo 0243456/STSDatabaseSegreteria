@@ -1,3 +1,4 @@
+package com.SegreteriaApplication.DBmodel;
 //package com.DatabaseSegreteriaApplication.DBmodel;
 //
 //import javax.persistence.Column;

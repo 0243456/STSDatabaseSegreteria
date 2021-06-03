@@ -1,7 +1,8 @@
-package com.DatabaseSegreteriaApplication.DBmodel;
+package com.SegreteriaApplication.DBmodel;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,15 +27,13 @@ public class Segreteria implements Serializable {
 	 @Column(name="codFiscale")
 	 public String codFiscale;
 		
-	 @Column(name="codDocente")
-	 public String codDocente;
+
 	 
 	 public Segreteria(Long codSegreteria, String datiStudente, String tasse, String codFiscale, String codDocente) {
 		 this.codSegreteria = codSegreteria;
 		 this.datiStudente = datiStudente;
 		 this.tasse = tasse;
 		 this.codFiscale = codFiscale;
-		 this.codDocente = codDocente;
 		 
 		
 	 }
@@ -76,13 +75,6 @@ public class Segreteria implements Serializable {
 		this.codFiscale = codFiscale;
 	}
 
-	public String getCodDocente() {
-		return codDocente;
-	}
-
-	public void setCodDocente(String codDocente) {
-		this.codDocente = codDocente;
-	}
 
 	@Override
 	public String toString() {
@@ -91,11 +83,11 @@ public class Segreteria implements Serializable {
 
 
 	 
-//	 @OneToOne(targetEntity = Studente.class)
-//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-//	 private List<Studente> matricola;
-//	 
-//	 @OneToOne(targetEntity = Docente.class)
-//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
-//	 private List<Docente> codDocente;
+	 @ManyToOne(targetEntity = Studente.class)
+	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+	 private List<Studente> matricola;
+	 
+	 @ManyToOne(targetEntity = Docente.class)
+	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+	 private List<Docente> codDocente;
 }

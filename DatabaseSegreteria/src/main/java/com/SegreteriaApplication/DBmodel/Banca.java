@@ -1,6 +1,7 @@
-package com.DatabaseSegreteriaApplication.DBmodel;
+package com.SegreteriaApplication.DBmodel;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -18,16 +19,12 @@ public class Banca implements Serializable {
 	@Column(name = "pagamenti")
 	private String pagamenti;
 
-	@Column(name = "codSegreteria")
-	private String codSegreteria;
-
 	@Column(name = "codFiscale")
 	private String codFiscale;
 	
 	public Banca(Long codBanca, String pagamenti, String codSegreteria, String codFiscale) {
 		this.codBanca = codBanca;
 		this.pagamenti = pagamenti;
-		this.codSegreteria = codSegreteria;
 		this.codFiscale = codFiscale;
 	}
 	
@@ -51,13 +48,6 @@ public class Banca implements Serializable {
 		this.pagamenti = pagamenti;
 	}
 
-	public String getCodSegreteria() {
-		return codSegreteria;
-	}
-
-	public void setCodSegreteria(String codSegreteria) {
-		this.codSegreteria = codSegreteria;
-	}
 
 	public String getCodFiscale() {
 		return codFiscale;
@@ -72,11 +62,11 @@ public class Banca implements Serializable {
 		return super.toString();
 	}
 
-//	 @OneToOne(targetEntity = Studente.class)
-//	 @JoinColumn(name = " matricola_f	k", referencedColumnName = "matricola")
-//	 private List<Studente> matricola;
+	 @ManyToOne(targetEntity = Studente.class)
+	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+	 private List<Studente> matricola;
 
-//	 @OneToOne(targetEntity = Segreteria.class)
-//	 @JoinColumn(name = " codSegreteria_fk", referencedColumnName = "codSegreteria")
-//	 private List<Segreteria> codSegreteria;
+	 @ManyToOne(targetEntity = Segreteria.class)
+	 @JoinColumn(name = " codSegreteria_fk", referencedColumnName = "codSegreteria")
+	 private List<Segreteria> codSegreteria;
 }

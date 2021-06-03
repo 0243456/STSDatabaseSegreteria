@@ -1,9 +1,9 @@
-package com.DatabaseSegreteriaApplication.Repository;
+package com.SegreteriaApplication.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Segreteria;
+import com.SegreteriaApplication.DBmodel.Segreteria;
 
 
 @Repository("segreteriaRepository")

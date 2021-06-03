@@ -1,4 +1,4 @@
-package com.DatabaseSegreteriaApplication.Repository;
+package com.SegreteriaApplication.Repository;
 
 
 
@@ -7,8 +7,7 @@ package com.DatabaseSegreteriaApplication.Repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-
-import com.DatabaseSegreteriaApplication.DBmodel.Studente;
+import com.SegreteriaApplication.DBmodel.Studente;
 
 
 

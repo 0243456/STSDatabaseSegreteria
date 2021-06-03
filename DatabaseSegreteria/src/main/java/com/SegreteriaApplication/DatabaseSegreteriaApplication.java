@@ -1,4 +1,4 @@
-package com.DatabaseSegreteriaApplication;
+package com.SegreteriaApplication;
 
 
 import org.springframework.boot.SpringApplication;
@@ -10,7 +10,7 @@ public class DatabaseSegreteriaApplication {
 
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable{
 		SpringApplication.run(DatabaseSegreteriaApplication.class, args);
 		
 	}

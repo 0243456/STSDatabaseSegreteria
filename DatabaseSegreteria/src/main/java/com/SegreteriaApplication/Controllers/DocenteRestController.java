@@ -1,4 +1,4 @@
-package com.DatabaseSegreteriaApplication.Controllers;
+package com.SegreteriaApplication.Controllers;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Docente;
-import com.DatabaseSegreteriaApplication.Repository.DocenteRepository;
+import com.SegreteriaApplication.DBmodel.Docente;
+import com.SegreteriaApplication.Repository.DocenteRepository;
 
 @RestController
 public class DocenteRestController {

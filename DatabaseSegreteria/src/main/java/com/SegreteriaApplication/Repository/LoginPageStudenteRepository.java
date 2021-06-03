@@ -1,3 +1,4 @@
+package com.SegreteriaApplication.Repository;
 //package com.DatabaseSegreteriaApplication.Repository;
 //
 //import org.springframework.data.jpa.repository.JpaRepository;

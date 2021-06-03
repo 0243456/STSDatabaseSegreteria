@@ -1,4 +1,4 @@
-package com.DatabaseSegreteriaApplication.DBmodel;
+package com.SegreteriaApplication.DBmodel;
 
 import java.io.Serializable;
 

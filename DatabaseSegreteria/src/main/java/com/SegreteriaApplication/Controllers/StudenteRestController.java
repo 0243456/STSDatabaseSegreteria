@@ -1,4 +1,4 @@
-package com.DatabaseSegreteriaApplication.Controllers;
+package com.SegreteriaApplication.Controllers;
 
 import java.util.*;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DatabaseSegreteriaApplication.DBmodel.Studente;
-import com.DatabaseSegreteriaApplication.Repository.StudenteRepository;
+import com.SegreteriaApplication.DBmodel.Studente;
+import com.SegreteriaApplication.Repository.StudenteRepository;
 
 
 

@@ -1,4 +1,4 @@
-package com.DatabaseSegreteriaApplication.Controllers;
+package com.SegreteriaApplication.Controllers;
 
 import java.util.*;
 
@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.DatabaseSegreteriaApplication.DBmodel.Segreteria;
-import com.DatabaseSegreteriaApplication.Repository.SegreteriaRepository;
+import com.SegreteriaApplication.DBmodel.Segreteria;
+import com.SegreteriaApplication.Repository.SegreteriaRepository;
 
 
 

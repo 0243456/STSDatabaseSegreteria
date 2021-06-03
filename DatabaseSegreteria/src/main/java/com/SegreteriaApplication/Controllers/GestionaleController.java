@@ -1,3 +1,4 @@
+package com.SegreteriaApplication.Controllers;
 //package com.DatabaseSegreteriaApplication.Controllers;
 //
 //import org.springframework.stereotype.Controller;

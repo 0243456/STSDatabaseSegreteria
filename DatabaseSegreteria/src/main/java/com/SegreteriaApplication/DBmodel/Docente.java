@@ -1,4 +1,4 @@
-package com.DatabaseSegreteriaApplication.DBmodel;
+package com.SegreteriaApplication.DBmodel;
 
 import java.io.Serializable;
 
@@ -39,8 +39,8 @@ public class Docente implements Serializable {
 		return codDocente;
 	}
 
-	public void setCodDocente(Long codDocente) {
-		this.codDocente = codDocente;
+	public void setCodDocente(Long codiceDocente) {
+		this.codDocente = codiceDocente;
 	}
 
 	public String getNome() {
@@ -71,9 +71,5 @@ public class Docente implements Serializable {
 	public String toString() {
 		return super.toString();
 	}
-	
-//	 @OneToOne(targetEntity = Corso.class)
-//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
-//	 private List<Docente> codDocente;
 
 }

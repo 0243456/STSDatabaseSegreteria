@@ -1,6 +1,7 @@
-package com.DatabaseSegreteriaApplication.DBmodel;
+package com.SegreteriaApplication.DBmodel;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -25,12 +26,11 @@ public class Corso implements Serializable {
 		this.nome = nome;
 		this.durata = durata;
 	}
-	
+
 	public Corso() {
-		
+
 	}
-	
-	
+
 	public Long getCodCorso() {
 		return codCorso;
 	}
@@ -60,21 +60,16 @@ public class Corso implements Serializable {
 		return super.toString();
 	}
 
-//	@ManyToOne
-//	 @JoinColumn(name="codDocente")
-//	 	private Docente docente;
-//	 	
-//	 @ManyToOne(targetEntity = Studente.class)
-//	 @JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
-//	 private List<Studente> matricola;
-//	 
-//	 @ManyToOne(targetEntity = Docente.class)
-//	 @JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
-//	 private List<Docente> codDocente;
-//	 
-//	 
-//	 @ManyToOne(targetEntity = Esame.class)
-//	 @JoinColumn(name = " codEsame_fk", referencedColumnName = "codEsame")
-//	 private List<Esame> codEsame;
+	@ManyToOne(targetEntity = Studente.class)
+	@JoinColumn(name = " matricola_fk", referencedColumnName = "matricola")
+	private List<Studente> matricola;
+
+	@ManyToOne(targetEntity = Docente.class)
+	@JoinColumn(name = " codDocente_fk", referencedColumnName = "codDocente")
+	private List<Docente> codDocente;
+
+	@ManyToOne(targetEntity = Esame.class)
+	@JoinColumn(name = " codEsame_fk", referencedColumnName = "codEsame")
+	private List<Esame> codEsame;
 
 }
